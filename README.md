@@ -25,7 +25,8 @@ refresh button.
 
 ### Demo Image
 This is what the current state of the app looks like.
+
 ![Demo Image]
-(https://octodex.github.com/images/yaktocat.png)
+(https://github.com/c-asakawa/RMLS-Parse/blob/master/demoImage.png)
 
 

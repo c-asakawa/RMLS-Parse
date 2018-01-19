@@ -1,0 +1,86 @@
+<md-card-content layout="row" >
+    <div class="cardPhotoFrame">
+        <img ng-click="clickImage($event, current)" class="cardPhoto" ng-src="{{current.photos[0]}}" />
+    </div>
+    <md-card md-theme="default" 
+    	class="currentInfoBlock" 
+    	style="width:50%" >
+
+
+<!--                 <div layout="row">
+            <span flex="45" style="padding:5px;font-size:30px;">
+                {{current.price}} 
+            </span>
+            <div flex="55">
+                <span><b>tax/year:</b> {{current.tax}}</span>
+                <md-divider></md-divider>
+                <span><b>HOA:</b> {{current.hoa.dues}}</span>
+            </div>
+        </div> -->
+
+        <!-- row 1, price and HOA -->
+        <div layout="row">
+            <div layout="column" style="margin-left:10px;">
+                <span flex style="padding:5px;font-size:30px;">
+                    {{current.price}} 
+                </span>
+                <span>tax/year: {{current.tax}}</span>
+            </div>
+            <div flex ng-if="current.hoa.contains" layout="column" style="margin-left:10px;">
+                <span>
+                    <b>HOA:</b> {{current.hoa.dues}} | Other Dues: {{current.hoa.otherDues}} 
+                </span>
+                <md-divider></md-divider>
+                <span><b>Includes:</b> {{current.hoa.includes}}</span>
+            </div>
+            <div flex ng-if="!current.hoa.contains" layout="column" style="margin-left:10px;">
+                NO HOA
+            </div>
+        </div>
+        <md-divider></md-divider>
+
+        <!-- row 2, sqft, room count, bath count -->
+        <div layout="row" style="margin-left:10px;">
+            <div flex="33">
+                <b>SQFT:</b>
+            </div>
+            <div flex="33">
+                <b># Bedrooms:</b>
+            </div>
+            <div flex="33">
+                <b># Bathrooms:</b>
+            </div>
+        </div>
+        <div layout="row" style="margin-left:10px;">
+            <div flex="33">
+                {{current.sqft.total}}
+            </div>
+            <div flex="33">
+                {{current.bedrooms}}
+            </div>
+            <div flex="33">
+                {{getFullBaths(current.bathrooms)}} full /
+                {{getHalfBaths(current.bathrooms)}} half
+            </div>
+        </div>
+        <md-divider></md-divider>
+
+
+        <div layout="row" style="margin-left:10px;">
+            <md-button class="md-raised" ng-click="showOnMap($index)">map</md-button>
+        </div>
+        <md-divider></md-divider>
+
+
+
+        <!-- row last: public description -->
+        <div layout="row" style="margin-left:10px;">
+            {{current.description}}
+        </div>
+    </md-card>
+
+
+
+    <!-- <md-card-actions layout="column">
+    </md-card-actions> -->
+</md-card-content>

@@ -1,0 +1,89 @@
+body, html {
+  height: 100%;
+  width: 100%;
+}
+md-sidenav, 
+md-sidenav.md-locked-open, 
+md-sidenav.md-closed.md-locked-open-add-active {
+    min-width: 600px !important;
+    width: 600px !important;
+} 
+
+
+
+.cardPhotoFrame {
+    height: 200px;
+    width: 50%;
+}
+
+.cardPhoto {
+	height: 100%;
+	width: auto;
+	cursor: pointer;
+}
+
+#imageDialog {
+	width: 800px;
+    height: 700px;
+}
+
+.padding-10 {
+	padding: 10;
+}
+.padding-5 {
+	padding: 10;
+}
+.stretch {
+	width: 100%;
+	height: 100%;
+}
+.indicatorButton {
+	min-width: 20px;
+    padding: 0;
+    margin: 0;
+}
+.nextPrevButton {
+    position: absolute;
+    top: 45%;
+    opacity: 0.7;
+    min-width: 40px;
+    padding-top: 10px;
+}
+
+.houseInfoBlock {
+	width: 50%;
+}
+.infoList {
+	list-style: none;
+}
+#map {
+  height: 400px;
+  width: 100%;
+ }
+
+ .selectedHouse {
+ 	border: 4px solid #8500a6;
+ }
+
+ .angular-google-map-container {
+ 	position: absolute;
+ 	height: 100%;
+ 	width: 35%; 
+ }
+
+ #toolBar {
+    position: absolute;
+    width: 600px;
+    height: 100px;
+    right: 0;
+
+ }
+
+ #housePanel {
+ 	position: absolute;
+ 	overflow: auto;
+ 	width: 600px;
+ 	right: 0;
+  bottom: 0;
+  top: 104px;
+ }

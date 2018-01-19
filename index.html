@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Search</title>
+    <!-- css resources (MIT) -->
+    <link rel="stylesheet" type="text/css" href="css/angular-material.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/please-wait.css">
+    <link rel="stylesheet" type="text/css" href="css/spinner.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body ng-app="HomeSearch" ng-controller="appController" ng-cloak>
+
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" control="map.control">
+        <ui-gmap-markers
+            models="markers"
+            coords="'coords'"
+            idKey="'id'"
+            options="'options'"
+            type="'cluster'"
+            typeOptions="map.options.cluster">
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+
+    <!-- right panel that displays the info on the houses -->
+    <md-toolbar class="md-hue-8" id="toolBar">
+      <div class="md-toolbar-tools">
+        <md-button ng-click="clearSelection()">clear</md-button>
+        <md-button ng-click="saveState()">save</md-button>
+        <md-button ng-click="refreshData()">refresh data</md-button>
+        <md-input-container class="md-block md-primary">
+            <label>Max Price</label>
+            <input ng-model="filter.maxPrice" type="number">
+        </md-input-container>
+      </div>
+    </md-toolbar>
+    <div id="housePanel">     
+        <md-card 
+            id="house-{{$index}}"
+            md-theme="default" 
+            ng-repeat="house in houses" 
+            ng-show=" house.visible"
+            ng-class="{selectedHouse: house.selected}" >
+            <house-content house="{{house}}"></house-content>
+        </md-card>
+    </div>
+
+    <!-- JavaScript resources (MIT) -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/angular-aria.min.js"></script>
+    <script type="text/javascript" src="js/angular-messages.min.js"></script>
+    <script type="text/javascript" src="js/angular-scroll.min.js"></script>
+    <script type="text/javascript" src="js/angular-parallax.min.js"></script>
+    <script type="text/javascript" src="js/angular-touch.min.js"></script>
+    <script type="text/javascript" src="js/angular-material.min.js"></script>
+    <script type="text/javascript" src="js/please-wait.min.js"></script>   
+
+    <script type="text/javascript" src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-simple-logger/0.1.7/angular-simple-logger.js"></script>
+
+    <script type="text/javascript" src="js/angular-google-maps.js"></script>   
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="mapService.js"></script>
+
+</body>
+</html>

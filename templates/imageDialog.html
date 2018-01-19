@@ -1,0 +1,35 @@
+<md-dialog id="imageDialog" aria-label="imageDialog">
+<form ng-cloak class="stretch">
+    <md-dialog-content class="stretch">
+        <md-button class="md-icon-button tileCloseButton" 
+            ng-click="closeDialog();"
+            aria-label="close"
+            style="float:right;">
+            <i class="fa fa-lg fa-times" aria-hidden="true"></i>
+        </md-button>
+
+        <div class="padding-10" style="width:100%;" layout="column" >
+            <img style="max-width:100%;" ng-src="{{house.photos[selectedIndex]}}" />
+        </div>
+
+        <section layout="row" layout-align="center center" layout-wrap >
+            <md-button ng-click="selectPhoto($index)" ng-repeat="photo in house.photos" class="indicatorButton" aria-label="indicator">
+                <i ng-show="$index == selectedIndex" class="fa fa-circle" aria-hidden="true"></i> 
+                <i ng-show="$index != selectedIndex" class="fa fa-circle-o" aria-hidden="true"></i> 
+            </md-button>
+        </section>
+
+        <md-button class="nextPrevButton" 
+            ng-click="previousPhoto()" 
+            aria-label="previous">
+            <i class="fa fa-2x fa-chevron-left" aria-hidden="true" style="color:#fff;"></i>
+        </md-button>
+        <md-button class="nextPrevButton" 
+            ng-click="nextPhoto()" 
+            style="right:0;" 
+            aria-label="next">
+            <i class="fa fa-2x fa-chevron-right" aria-hidden="true" style="color:#fff;"></i>
+        </md-button>
+    </md-dialog-content>
+</form>
+</md-dialog>

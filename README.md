@@ -21,3 +21,11 @@ refresh button.
 1. clone this repo `https://github.com/c-asakawa/RMLS-Parse.git`
 2. open up the `app.js` and update the RMLS ID and google maps api key.
 3. done
+
+
+### Demo Image
+This is what the current state of the app looks like.
+![Demo Image]
+(https://github.com/c-asakawa/RMLS-Parse/blob/master/demoImage.png)
+
+
